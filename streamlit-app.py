@@ -6,6 +6,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import plotly.express as px
 
 st.set_page_config(layout="wide")
 
@@ -43,4 +44,6 @@ sex = st.selectbox('Choose sex of applicant',set(list(data_qp['sex'])))
 
 data_qps = data_qp[data_qp['sex']==sex]
 
-data_qps.plot(x='YAG',y=['earnings_median','earnings_UQ','earnings_LQ'])
+fig = px.line(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'])
+
+st.plotly_chart(fig, use_container_width=True)
