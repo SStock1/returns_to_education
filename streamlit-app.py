@@ -50,7 +50,7 @@ if len(data_qps)==0:
 
 else:
 
-    fig = px.bar(data_qps, x='YAG', y=['earnigs_LQ','earnings_median','earnings_UQ'], labels={'YAG':'Years after graduation'}, barmode='group')
+    fig = px.bar(data_qps, x='YAG', y=['earnings_LQ','earnings_median','earnings_UQ'], labels={'YAG':'Years after graduation'}, barmode='group')
 
     fig.update_layout(title='Earnings after graduation')
 
