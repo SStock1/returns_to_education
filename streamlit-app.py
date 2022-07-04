@@ -42,3 +42,5 @@ data_qp = data_q[data_q['provider_name']==provider]
 sex = st.selectbox('Choose sex of applicant',set(list(data_qp['sex'])))
 
 data_qps = data_qp[data_qp['sex']==sex]
+
+data_qps.plot(x='YAG',y=['earnings_median','earnings_UQ','earnings_LQ'])
