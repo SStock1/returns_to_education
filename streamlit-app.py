@@ -50,9 +50,10 @@ if len(data_qps)==0:
 
 else:
 
-    fig = px.bar(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'], labels={'YAG':'Years after graduation'})
+    fig = px.bar(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'], labels={'YAG':'Years after graduation'}, barmode='grouped')
 
     fig.update_layout(title='Earnings after graduation')
-    fig.update_xaxes(tickvals=[1,3,5])
+
+    fig.update_xaxes(tickvals=sorted(list(data_qps['YAG'].values)))
 
     st.plotly_chart(fig, use_container_width=True)
