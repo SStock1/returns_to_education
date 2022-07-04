@@ -11,7 +11,7 @@ st.set_page_config(layout="wide")
 
 # Data import
 
-combined = pd.read_csv('combined.csv')
+data = pd.read_csv('cleaned.csv')
 
 # Sidebar
 
