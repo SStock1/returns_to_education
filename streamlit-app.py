@@ -31,8 +31,14 @@ st.subheader('Earnings by provider, subject and sex')
 
 st.markdown('This section examines the earnings of UK first degree graduates by provider, subject, and sex one, three and five years after graduation.')
 
-st.markdown('Search for a product that you wish to analyse')
+qualification = st.selectbox('Search for a qualification you are interested in',set(list(data['subject_name'])))
 
-st.markdown('Search for a qualification you are interested in')
+data_q = data[data['subject_name']==qualification]
 
-combined_product = st.selectbox('',set(list(combined['output product'])))
+provider = st.selectbox('Search for an education provider',set(list(data_q['provider_name'])))
+
+data_qp = data_q[data_q['provider_name']==provider]
+
+sex = st.selectbox('Choose sex of applicant',set(list(data_qp['sex'])))
+
+data_qps = data_qp[data_qp['sex']==sex]
