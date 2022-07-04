@@ -46,7 +46,7 @@ data_qps = data_qp[data_qp['sex']==sex]
 
 fig = px.line(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'], labels={'YAG':'Years after graduation'})
 
-fig.update_layout(title='Earnings after graduation', xaxis_tickformat=',d')
-fig.update_xaxes(range = [1,5], dividerwidth=2)
+fig.update_layout(title='Earnings after graduation')
+fig.update_xaxes(range = [1,5], nticks=3)
 
 st.plotly_chart(fig, use_container_width=True)
