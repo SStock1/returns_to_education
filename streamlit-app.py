@@ -40,13 +40,19 @@ provider = st.selectbox('Search for an education provider',set(list(data_q['prov
 
 data_qp = data_q[data_q['provider_name']==provider]
 
-sex = st.selectbox('Choose sex of applicant',set(list(data_qp['sex'])))
+sex = st.selectbox('Choose sex of graduate',set(list(data_qp['sex'])))
 
 data_qps = data_qp[data_qp['sex']==sex]
 
-fig = px.line(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'], labels={'YAG':'Years after graduation'})
+if len(data_qps)==0:
 
-fig.update_layout(title='Earnings after graduation')
-fig.update_xaxes(tickvals=[1,3,5])
+    st.markdown('Selection not available')
 
-st.plotly_chart(fig, use_container_width=True)
+else:
+
+    fig = px.line(data_qps, x='YAG', y=['earnings_median','earnings_UQ','earnings_LQ'], labels={'YAG':'Years after graduation'})
+
+    fig.update_layout(title='Earnings after graduation')
+    fig.update_xaxes(tickvals=[1,3,5])
+
+    st.plotly_chart(fig, use_container_width=True)
